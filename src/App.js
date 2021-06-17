@@ -27,13 +27,15 @@ function App() {
         </div>
 
         <ul className="image-grid">
-          {uploadedImages.length
-            ? uploadedImages.map((image) => (
-                <li>
-                  <img src={image} alt="Fun images" />
-                </li>
-              ))
-            : null}
+          {uploadedImages.length ? (
+            uploadedImages.map((image) => (
+              <li>
+                <img src={image} alt="Fun images" />
+              </li>
+            ))
+          ) : (
+            <p>Your uploaded images will appear here!</p>
+          )}
         </ul>
       </main>
     </div>

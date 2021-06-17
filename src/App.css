@@ -46,6 +46,13 @@
   row-gap: 6rem;
   list-style: none;
   margin-top: 6rem;
+  text-align: center;
+  padding-left: 0;
+}
+
+.image-grid p {
+  grid-column-start: 2;
+  opacity: 50%;
 }
 
 .image-grid li {
