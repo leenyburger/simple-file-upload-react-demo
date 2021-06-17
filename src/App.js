@@ -1,21 +1,41 @@
+import { useState } from 'react';
 import './App.css';
+import SimpleFileUpload from 'react-simple-file-upload';
 
 function App() {
+  const [uploadedImages, setUploadedImages] = useState([]);
+
+  function handleUpload(url) {
+    setUploadedImages([...uploadedImages, url]);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+        <h1>Simple File Upload Demo</h1>
+        <a className="btn" href="https://simplefileupload.com">
+          Try it now!
         </a>
       </header>
+      <main>
+        <div className="upload-wrapper">
+          <SimpleFileUpload
+            apiKey="2e7792d9a1cfd35dbef192d26f5ed176"
+            onSuccess={handleUpload}
+            preview="false"
+          />
+        </div>
+
+        <ul className="image-grid">
+          {uploadedImages.length
+            ? uploadedImages.map((image) => (
+                <li>
+                  <img src={image} alt="Fun images" />
+                </li>
+              ))
+            : null}
+        </ul>
+      </main>
     </div>
   );
 }
