@@ -9,6 +9,10 @@ function App() {
     setUploadedImages([...uploadedImages, url]);
   }
 
+  function handleOnDrop(url) {
+    console.log("drop started")
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,6 +26,7 @@ function App() {
           <SimpleFileUpload
             apiKey="2e7792d9a1cfd35dbef192d26f5ed176"
             onSuccess={handleUpload}
+            onDrop={handleOnDrop}
             preview="false"
           />
         </div>
