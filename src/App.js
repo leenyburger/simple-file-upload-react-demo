@@ -7,11 +7,10 @@ function App() {
 
   function handleUpload(url) {
     setUploadedImages([...uploadedImages, url]);
-    alert('in handle upload')
   }
 
   function handleOnDrop(url) {
-    alert("drop started")
+    console.log("drop started")
   }
 
   return (
@@ -27,7 +26,6 @@ function App() {
           <SimpleFileUpload
             apiKey="2e7792d9a1cfd35dbef192d26f5ed176"
             onSuccess={handleUpload}
-            onDrop={handleOnDrop}
             preview="false"
           />
         </div>
