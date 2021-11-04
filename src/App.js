@@ -24,7 +24,7 @@ function App() {
       <main>
         <div className="upload-wrapper">
           <SimpleFileUpload
-            apiKey="2e7792d9a1cfd35dbef192d26f5ed176"
+            apiKey="e8557605f1b5ac9b18c913603d29a8c8"
             onSuccess={handleUpload}
             onDrop={handleOnDrop}
             preview="false"
