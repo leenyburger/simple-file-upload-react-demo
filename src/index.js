@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2);
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
