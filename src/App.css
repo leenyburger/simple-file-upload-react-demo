@@ -9,6 +9,15 @@
   font-size: 1.25rem;
 }
 
+.tryIt {
+  padding: 1rem 4rem;
+  font-size: 1.25rem;
+}
+
+.propertyCard {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
 .upload-button {
   background: linear-gradient(90deg, #b731dd 0, #4161eb 100%);
   padding: 0.5rem 1.25rem;
@@ -23,7 +32,6 @@
 .upload-button:hover {
   transform: scale(1.05);
 }
-
 
 .btn {
   background: linear-gradient(90deg, #b731dd 0, #4161eb 100%);
@@ -61,8 +69,9 @@
 
 .App main .image-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
+  place-items: center;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
   row-gap: 6rem;
   list-style: none;
   margin-top: 6rem;
@@ -71,7 +80,7 @@
 }
 
 .image-grid p {
-  grid-column-start: 2;
+  grid-column-start: 3;
   opacity: 50%;
 }
 

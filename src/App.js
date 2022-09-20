@@ -28,6 +28,9 @@ function App() {
           Try it now!
         </a>
       </header>
+      <h1 className="tryIt"> Want to try it yourself? 
+        Check out the code running this demo <a href="https://github.com/leenyburger/simple-file-upload-react-demo"> here </a>
+      </h1>
       <main>
         <div className="upload-wrapper">
           <SimpleFileUpload
@@ -41,9 +44,11 @@ function App() {
         <ul className="image-grid">
           {uploadedImages.length ? (
             uploadedImages.map((image) => (
-              <li key={image}>
-                <img src={image} alt="Images from single file uploader" />
-              </li>
+              <div className = "propertyCard">
+                <li key={image}>
+                  <img src={ `${image}?w=330` } alt="Images from single file uploader" />
+                </li>
+              </div>
             ))
           ) : (
             <p>Your uploaded images will appear here!</p>
@@ -71,9 +76,11 @@ function App() {
         <ul className="image-grid" id="image-grid-multiple">
           {uploadedImagesFromMultiple.length ? (
             uploadedImagesFromMultiple.map((file) => (
-              <li key={file}>
-                <img src={file.cdnUrl} alt="Uploaded via multi-file uploader" />
-              </li>
+             <div className = "propertyCard">
+                <li key={file}>
+                  <img src={ `${file.cdnUrl}?w=330` } alt="Uploaded via multi-file uploader" />
+                </li>
+              </div>
             ))
           ) : (
             <p>Your uploaded images from the multiple file uploader will appear here!</p>
