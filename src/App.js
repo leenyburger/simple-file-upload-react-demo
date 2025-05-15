@@ -44,9 +44,9 @@ function App() {
         <ul className="image-grid">
           {uploadedImages.length ? (
             uploadedImages.map((image) => (
-              <div className = "propertyCard">
-                <li key={image}>
-                  <img src={ `${image}?w=330` } alt="Images from single file uploader" />
+              <div className="propertyCard" key={image}>
+                <li>
+                  <img src={`${image}?${Date.now()}`} alt="Images from single file uploader" />
                 </li>
               </div>
             ))
@@ -60,32 +60,38 @@ function App() {
         <h1>Simple File Upload Demo - Multiple Uploader</h1>
       </header>
       <main>
-        <div className="upload-wrapper">
-          <SimpleFileUpload
-            apiKey="e8557605f1b5ac9b18c913603d29a8c8"
-            onSuccess={handleMultipleUpload}
-            onDrop={handleOnDrop}
-            preview={false}
-            multiple={true}
-            maxFiles= {5}
-            removeLinks={true}
-            buttonClass="upload-button"
-          />
-        </div>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          console.log('Multiple upload form submitted');
+        }}>
+          <div className="upload-wrapper">
+            <SimpleFileUpload
+              apiKey="e8557605f1b5ac9b18c913603d29a8c8"
+              onSuccess={handleMultipleUpload}
+              onDrop={handleOnDrop}
+              preview={false}
+              multiple={true}
+              maxFiles={5}
+              removeLinks={true}
+              buttonClass="upload-button"
+            />
+            <button type="submit" className="submit-button">Submit Multiple Files</button>
+          </div>
 
-        <ul className="image-grid" id="image-grid-multiple">
-          {uploadedImagesFromMultiple.length ? (
-            uploadedImagesFromMultiple.map((file) => (
-             <div className = "propertyCard">
-                <li key={file}>
-                  <img src={ `${file.cdnUrl}?w=330` } alt="Uploaded via multi-file uploader" />
-                </li>
-              </div>
-            ))
-          ) : (
-            <p>Your uploaded images from the multiple file uploader will appear here!</p>
-          )}
-        </ul>
+          <ul className="image-grid" id="image-grid-multiple">
+            {uploadedImagesFromMultiple.length ? (
+              uploadedImagesFromMultiple.map((file) => (
+               <div className="propertyCard" key={file.cdnUrl || file}>
+                  <li>
+                    <img src={`${file.cdnUrl}?w=330`} alt="Uploaded via multi-file uploader" />
+                  </li>
+                </div>
+              ))
+            ) : (
+              <p>Your uploaded images from the multiple file uploader will appear here!</p>
+            )}
+          </ul>
+        </form>
       </main>
     </div>
   );
