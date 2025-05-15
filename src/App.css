@@ -67,6 +67,27 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.name-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: border-color 150ms ease;
+  outline: none;
+}
+
+.name-input:focus {
+  border-color: #4161eb;
+}
+
+.name-input::placeholder {
+  color: #a0aec0;
 }
 
 .submit-button {
@@ -80,6 +101,8 @@
   color: white;
   border: none;
   cursor: pointer;
+  width: 100%;
+  outline: none;
 }
 
 .submit-button:hover {

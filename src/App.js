@@ -5,6 +5,7 @@ import SimpleFileUpload from 'react-simple-file-upload';
 function App() {
   const [uploadedImages, setUploadedImages] = useState([]);
   const [uploadedImagesFromMultiple, setUploadedImagesFromMultiple] = useState([]);
+  const [userName, setUserName] = useState('');
 
 
   function handleUpload(url) {
@@ -62,9 +63,17 @@ function App() {
       <main>
         <form onSubmit={(e) => {
           e.preventDefault();
-          console.log('Multiple upload form submitted');
+          console.log('Multiple upload form submitted', { userName, files: uploadedImagesFromMultiple });
         }}>
           <div className="upload-wrapper">
+            <input
+              type="text"
+              className="name-input"
+              placeholder="Enter your name"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              required
+            />
             <SimpleFileUpload
               apiKey="e8557605f1b5ac9b18c913603d29a8c8"
               onSuccess={handleMultipleUpload}
@@ -75,7 +84,7 @@ function App() {
               removeLinks={true}
               buttonClass="upload-button"
             />
-            <button type="submit" className="submit-button">Submit Multiple Files</button>
+            <button type="submit" className="submit-button">Submit</button>
           </div>
 
           <ul className="image-grid" id="image-grid-multiple">
